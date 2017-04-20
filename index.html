@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
+
+    <title></title>
+    <h1>MY PLANNING</h1>
+  </head>
+  <body>
+<input type="text" id="textField" value = "" placeholder="Enter your plan"><br><br><br>
+<button type="button" name="addBtn" onclick="addText()">add plan</button>
+
+<div id="display">
+  <script id = "output" type="text/x-handlebars-template">
+    <table>
+      <tr>
+        <th>TO DO</th>
+        <th>DOING</th>
+        <th>DONE</th>
+      </tr>
+
+
+      {{#each tasks}}
+        <tr>
+          <td>{{#if todo}}{{taskName}}{{/if}}</td>
+          <td>{{#if doing}}{{taskName}}{{/if}}</td>
+          <td>{{#if done}}{{taskName}}{{/if}}</td>
+        </tr>
+
+      {{/each}}
+  </table>
+</script>
+
+<div class ="output">
+
+
+</div>
+
+<script src="myDecision.js"> </script>
+  </body>
+</html>
