@@ -1,42 +1,46 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="myDecision.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
 
     <title></title>
     <h1>MY PLANNING</h1>
-  </head>
-  <body>
-<input type="text" id="textField" value = "" placeholder="Enter your plan"><br><br><br>
-<button type="button" name="addBtn" onclick="addText()">add plan</button>
+</head>
 
-<div id="display">
-  <script id = "output" type="text/x-handlebars-template">
-    <table>
-      <tr>
-        <th>TO DO</th>
-        <th>DOING</th>
-        <th>DONE</th>
-      </tr>
+<body>
+    <input type="text" id="textField" value="" placeholder="Enter your plan" rows="10" cols="50"><br><br><br>
+    <button type="button" name="addBtn" onclick="addText()">add plan</button>
 
+    <div id="display">
+        <script id="output" type="text/x-handlebars-template">
+            {{#each tasks}}
+            <tr>
+                <td>{{#if todo}}{{taskName}}<button type="button" data-button-type="todo" data-task-id={{id}}>start</button>{{/if}}</td>
+                <td>{{#if doing}}{{taskName}}{{/if}}</td>
+                <td>{{#if done}}{{taskName}}{{/if}}</td>
+            </tr>
+            {{/each}}
+        </script>
 
-      {{#each tasks}}
-        <tr>
-          <td>{{#if todo}}{{taskName}}{{/if}}</td>
-          <td>{{#if doing}}{{taskName}}{{/if}}</td>
-          <td>{{#if done}}{{taskName}}{{/if}}</td>
-        </tr>
+        <div class="output">
+            <table>
+                <tr>
+                    <th>TO DO</th>
+                    <th>DOING</th>
+                    <th>DONE</th>
+                </tr>
+                <tbody class="tasks">
 
-      {{/each}}
-  </table>
-</script>
+                </tbody>
+            </table>
 
-<div class ="output">
+        </div>
 
+        <script src="myDecision.js">
+        </script>
+</body>
 
-</div>
-
-<script src="myDecision.js"> </script>
-  </body>
 </html>

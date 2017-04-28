@@ -1,0 +1,17 @@
+table{
+  width: 60%;
+  border-color: black;
+  text-align: center;
+  border-collapse: separate;
+  border-spacing: 1px;
+}
+td{
+  border : 3px solid black;
+  border-collapse: collapse;
+
+}
+
+th{
+  border : 3px solid black;
+  height : 35px;
+}
