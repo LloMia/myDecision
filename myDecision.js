@@ -10,46 +10,16 @@ output.innerHTML = template({
 });
 
 var tasks = [];
-
-taskTable.addEventListener('click', function(evt) {
-
-      //alert(evt.target.dataset.taskId);
-
-      var clickOnTaskId = evt.target.dataset.taskId;
-
-      //alert(clickOnTaskId);
-
-      //find the task for the clickOnTaskId in tasks
-      var task = null;
-
-      for (var i = 0; i < tasks.length; i++) {
-          if (tasks[i].id === Number(clickOnTaskId)) {
-              task = tasks[i]
-          }
-      }
-
-      //update it's state to doing
-
-      if (task) {
-          task.todo = false;
-          task.doing = true;
-          task.done = false;
-      }
-      //re-render the screen
-      output.innerHTML = template({
-          tasks: tasks
-      });
-
-});
-
 var taskId = 0;
-
+if (localStorage.getItem("tasks")){
+    tasks = JSON.parse(localStorage.getItem("tasks"))
+}
+taskTable.innerHTML = template({
+  tasks : tasks
+})
 function addText() {
     var input = document.querySelector('#textField').value;
-    //console.log(input);
-
     taskId += 1;
-
     tasks.push({
         id: taskId,
         taskName: input,
@@ -63,9 +33,46 @@ function addText() {
     output.innerHTML = table;
 }
 
-function start() {
-    alert("add not found")
-    if (tasks.input === tasks.todo) {
-        tasks.classList.add(tasks.doing)
+taskTable.addEventListener('click', function(evt) {
+
+    var clickOnTaskId = evt.target.dataset.taskId
+    var buttonType = evt.target.dataset.buttonType;
+
+    //Find the Task that was clicked on...
+    var task = null;
+    for (var i = 0; i < tasks.length; i++) {
+        if (tasks[i].id === Number(clickOnTaskId)) {
+            task = tasks[i]
+        }
     }
+
+    if (buttonType === "todo") {
+        task.todo = false;
+        task.doing = true;
+        task.done = false;
+    }
+    else if (buttonType === "doing"){
+      task.todo = false;
+      task.doing = false;
+      task.done = true;
+    }
+
+    output.innerHTML = template({
+        tasks: tasks
+    });
+
+   localStorage.setItem("tasks", JSON.stringify(tasks));
+    storedtask = JSON.parse(localStorage.getItem("tasks"));
+
+});
+
+var resetbtn = document.getElementByName('resetBtn');
+resetbtn.addEventListener('click',reset)
+
+function reset(){
+  localStorage.tasks = ""
+  taskTable.innerHTML = template({
+    tasks : tasks
+  })
+
 }

@@ -1,17 +1,30 @@
 table{
-  width: 60%;
+  width: 100%;
   border-color: black;
   text-align: center;
   border-collapse: separate;
   border-spacing: 1px;
 }
-td{
-  border : 3px solid black;
-  border-collapse: collapse;
 
+tr {
+}
+
+td{
+  width: 33%;
+  border : 1px solid black;
+  border-collapse: collapse;
+  height: 5em;
 }
 
 th{
   border : 3px solid black;
   height : 35px;
+}
+
+.startBtn {
+  float: right;
+}
+
+.CompleteBtn {
+  float: right;
 }

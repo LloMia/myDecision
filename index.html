@@ -13,14 +13,15 @@
 <body>
     <input type="text" id="textField" value="" placeholder="Enter your plan" rows="10" cols="50"><br><br><br>
     <button type="button" name="addBtn" onclick="addText()">add plan</button>
+    <button type="button" name="resetBtn" onclick="reset()">reset</button>
 
     <div id="display">
         <script id="output" type="text/x-handlebars-template">
             {{#each tasks}}
             <tr>
-                <td>{{#if todo}}{{taskName}}<button type="button" data-button-type="todo" data-task-id={{id}}>start</button>{{/if}}</td>
-                <td>{{#if doing}}{{taskName}}{{/if}}</td>
-                <td>{{#if done}}{{taskName}}{{/if}}</td>
+                <td style="background-color : bisque">{{#if todo}}{{taskName}}<button type="button" class = "startBtn" data-button-type="todo" data-task-id={{id}}>start</button>{{/if}}</td>
+                <td style="background-color : plum">{{#if doing}}{{taskName}}<button type="button" class = "CompleteBtn" data-button-type="doing" data-task-id={{id}}>complete</button>{{/if}}</td>
+                <td style="background-color : aqua">{{#if done}}{{taskName}}{{/if}}</td>
             </tr>
             {{/each}}
         </script>
