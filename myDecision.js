@@ -66,7 +66,7 @@ taskTable.addEventListener('click', function(evt) {
 
 });
 
-var resetbtn = document.getElementByName('resetBtn');
+var resetbtn = document.getElementById('resetBtn');
 resetbtn.addEventListener('click',reset)
 
 function reset(){
