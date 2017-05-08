@@ -31,6 +31,10 @@ function addText() {
         tasks: tasks
     });
     output.innerHTML = table;
+
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    storedtask = JSON.parse(localStorage.getItem("tasks"));
+
 }
 
 taskTable.addEventListener('click', function(evt) {
@@ -62,7 +66,7 @@ taskTable.addEventListener('click', function(evt) {
     });
 
    localStorage.setItem("tasks", JSON.stringify(tasks));
-    storedtask = JSON.parse(localStorage.getItem("tasks"));
+   storedtask = JSON.parse(localStorage.getItem("tasks"));
 
 });
 
