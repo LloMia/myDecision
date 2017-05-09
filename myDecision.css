@@ -28,3 +28,23 @@ th{
 .CompleteBtn {
   float: right;
 }
+
+h1{
+  color : mediumvioletred;
+  text-align: center;
+  background-color: linen;
+  font-size: 500%;
+  font-family: sans-serif;
+}
+
+body{
+
+  background-image: url(image.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#textField{
+  width: 30%;
+  height: 40px;
+}
